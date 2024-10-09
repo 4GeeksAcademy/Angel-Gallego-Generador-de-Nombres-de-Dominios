@@ -7,8 +7,8 @@ import "./assets/img/4geeks.ico";
 
 let pre = ["tu", "el", "vuestro"];
 let mid = ["profesor", "farmeador", "programador"];
-let fin = ["aterrador", "vigilante", "despistado"];
-let dominio = ["com", "es", "or"];
+let end = ["aterrador", "vigilante", "despistado"];
+let dominio = ["es", "do", "or"];
 
 window.onload = function() {
   let inputNick = document.getElementById("nick");
@@ -22,16 +22,34 @@ window.onload = function() {
       let nick = inputNick.value;
 
       if (nick === "") {
-        dominioGenerado.innerHTML = "Elige un nick primero";
+        dominioGenerado.innerHTML = `<h2>Mete el nick anda, que han sido dos horas hacer que funcione :)</h2><img
+          class="container-fluid text-center img-fluid mt-4"
+          src="https://media.tenor.com/r2LZapJhs4IAAAAi/pull-gun-ready-to-fight.gif"
+          width="50%"
+          alt=""
+        />`;
       } else {
         let generandoDominio = " ";
         // inicio el bucle
         for (let i = 0; i < pre.length; i++) {
           for (let j = 0; j < mid.length; j++) {
-            for (let k = 0; k < fin.length; k++) {
+            for (let k = 0; k < end.length; k++) {
               for (let l = 0; l < dominio.length; l++) {
-                generandoDominio +=
-                  nick + pre[i] + mid[j] + fin[k] + "." + dominio[l] + " <br> ";
+                let supr = "";
+                if (end[k].slice(-2) === dominio[l]) {
+                  supr = end[k].slice(0, -2);
+                  generandoDominio +=
+                    nick + pre[i] + mid[j] + supr + "." + dominio[l] + " <br> ";
+                } else {
+                  generandoDominio +=
+                    nick +
+                    pre[i] +
+                    mid[j] +
+                    end[k] +
+                    "." +
+                    dominio[l] +
+                    " <br> ";
+                }
               }
             }
           }
